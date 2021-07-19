@@ -12,14 +12,12 @@ class Background extends StatelessWidget {
         Container(
           height: 150,
             child: WaveWidget(
-
               config: CustomConfig(
                 gradients: [
-                  [ Colors.pink.shade400,Colors.white70,],
-                  [ Colors.pink.shade300,Colors.white54,],
-                 [ Colors.pink.shade200,Colors.white30,],
-                  [ Colors.pink.shade50,Colors.pink.shade50],
-
+                  [ Color(0xffb4dfef),Color(0xffb4dfef)],
+                  [ Color(0xff8795bc),Color(0xff8795bc)],
+                  [ Color(0xff9eadd9),Color(0xff9eadd9)],
+                  [ Color(0xff9dcae3),Color(0xff9dcae3)],
                 ],
                 durations: [32000, 21000, 10800, 5000],
                 heightPercentages: [0.25, 0.26, 0.28, 0.31],
@@ -28,14 +26,23 @@ class Background extends StatelessWidget {
                 gradientEnd: Alignment.topRight,
               ),
               waveAmplitude: 0,
-              backgroundColor: Colors.white,
+              backgroundColor: Color(0xffb4dfef),
               size: Size(double.infinity, double.infinity),
             ),
           ),
         Container(
           height: MediaQuery.of(context).size.height - 230,
-          color:  Colors.pink.shade50,
-        )
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xff9dcae3),
+                Color(0xff42497a),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_timer/components/background.dart';
 import 'package:flutter_timer/components/timer_text.dart';
-import 'package:flutter_timer/components/actions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_timer/timer/timer.dart';
 
@@ -12,9 +11,9 @@ class TimerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xffb4dfef),
         elevation: 0,
-        title: const Text('Flutter Timer'),
+        title: const Text('Flutter Timer', style: TextStyle(color: Color(0xff3e3f72)),),
       ),
       body: Stack(
         children: [
@@ -50,7 +49,7 @@ class Actions extends StatelessWidget {
           children: [
             if (state is TimerInitial) ...[
               FloatingActionButton(
-                backgroundColor: Colors.pink.shade300,
+                backgroundColor: Color(0xff3e3f72),
                 child: Icon(Icons.play_arrow),
                 onPressed: () => context
                     .read<TimerBloc>()
@@ -59,30 +58,30 @@ class Actions extends StatelessWidget {
             ],
             if (state is TimerRunInProgress) ...[
               FloatingActionButton(
-                backgroundColor: Colors.pink.shade300,
+                backgroundColor: Color(0xff3e3f72),
                 child: Icon(Icons.pause),
                 onPressed: () => context.read<TimerBloc>().add(TimerPaused()),
               ),
               FloatingActionButton(
-                  backgroundColor: Colors.pink.shade300,
+                  backgroundColor: Color(0xff3e3f72),
                   child: Icon(Icons.replay),
                   onPressed: () => context.read<TimerBloc>().add(TimerReset())),
             ],
             if (state is TimerRunPause) ...[
               FloatingActionButton(
-                backgroundColor: Colors.pink.shade300,
+                backgroundColor: Color(0xff3e3f72),
                 child: Icon(Icons.play_arrow),
                 onPressed: () => context.read<TimerBloc>().add(TimerResumed()),
               ),
               FloatingActionButton(
-                backgroundColor: Colors.pink.shade300,
+                backgroundColor: Color(0xff3e3f72),
                 child: Icon(Icons.replay),
                 onPressed: () => context.read<TimerBloc>().add(TimerReset()),
               ),
             ],
             if (state is TimerRunComplete) ...[
               FloatingActionButton(
-                backgroundColor: Colors.pink.shade300,
+                backgroundColor: Color(0xff3e3f72),
                 child: Icon(Icons.replay),
                 onPressed: () => context.read<TimerBloc>().add(TimerReset()),),
             ]
