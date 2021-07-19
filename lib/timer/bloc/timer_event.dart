@@ -1,4 +1,6 @@
 part of 'timer_bloc.dart';
+
+
 abstract class TimerEvent extends Equatable {
   const TimerEvent();
 
@@ -11,13 +13,17 @@ class TimerStarted extends TimerEvent {
   final int duration;
 }
 
+
 class TimerPaused extends TimerEvent {
   const TimerPaused();
 }
 
+
 class TimerResumed extends TimerEvent {
   const TimerResumed();
 }
+
+
 class TimerReset extends TimerEvent {
   const TimerReset();
 }
